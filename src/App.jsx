@@ -1,24 +1,30 @@
 import "./App.css";
-import logo from "./logo.svg";
+import useCount from "./hooks/useCount";
 
 function App() {
+  const [count, increment, reset] = useCount();
+
   return (
-    <div className="text-center">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://beta.reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React (Beta Docs)
-        </a>
-      </header>
-    </div>
+    <>
+      <h1 className="mt-10 text-center uppercase text-red-500">
+        Button Counter
+      </h1>
+      <p className="font text-center font-semibold text-blue-300 ">{count}</p>
+      <button
+        type="button"
+        className="rounded border-2 p-3 hover:bg-blue-700 hover:text-white"
+        onClick={increment}
+      >
+        Click Me
+      </button>
+      <button
+        type="button"
+        className="rounded border-2 p-3 hover:bg-red-600 hover:text-white"
+        onClick={reset}
+      >
+        Reset
+      </button>
+    </>
   );
 }
 
