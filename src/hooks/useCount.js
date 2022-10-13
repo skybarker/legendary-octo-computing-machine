@@ -7,7 +7,7 @@ function useCount(initialCount = 0) {
     setCount((prev) => prev + 1);
   };
   const reset = () => {
-    setCount(0);
+    setCount(initialCount);
   };
   return [count, increment, reset];
 }
