@@ -1,7 +1,9 @@
+import PropTypes from "prop-types";
 import useCount from "../hooks/useCount";
 
-function ButtonCounter() {
+function ButtonCounter({ txt }) {
   const [count, increment, reset] = useCount();
+
   return (
     <>
       <p className="font text-center font-semibold text-blue-300 ">{count}</p>
@@ -10,7 +12,7 @@ function ButtonCounter() {
         className="rounded border-2 p-3 hover:bg-blue-700 hover:text-white"
         onClick={increment}
       >
-        Click Me
+        {txt}
       </button>
       <button
         type="button"
@@ -22,5 +24,9 @@ function ButtonCounter() {
     </>
   );
 }
+
+ButtonCounter.propTypes = {
+  txt: PropTypes.string.isRequired,
+};
 
 export default ButtonCounter;
